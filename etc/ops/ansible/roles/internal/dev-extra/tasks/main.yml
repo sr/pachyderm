@@ -9,5 +9,6 @@
     - pkg-config
     - screen
     - shellcheck
+    - tig
     - tree
 - user: name=dev groups=docker append=yes
