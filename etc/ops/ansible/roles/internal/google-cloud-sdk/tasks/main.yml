@@ -1,0 +1,12 @@
+---
+- apt: name=google-cloud-sdk state=absent purge=yes
+- name: Check Coogle Cloud SDK
+  stat: path=/opt/google-cloud-sdk
+  register: sdk
+- name: Install Google Cloud SDK
+  environment:
+    CLOUDSDK_CORE_DISABLE_PROMPTS: 1
+    CLOUDSDK_INSTALL_DIR: /opt
+  shell: curl https://sdk.cloud.google.com | bash
+  when: not sdk.stat.exists
+- copy: src=google-cloud-sdk.sh dest=/etc/profile.d
