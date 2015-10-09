@@ -12,3 +12,4 @@
     - google-cloud-sdk
     - { role: dev-gcloud, gcloud_snapshot_frequency: "daily" }
     - deb-build
+    - dev-nodejs
